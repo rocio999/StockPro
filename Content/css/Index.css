@@ -1,0 +1,115 @@
+﻿/* Fondo general gris perla  */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+/* Franja superior Azul */
+.franja-superior {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 50px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+    width: 100%;
+}
+
+    .franja-superior h1 {
+        margin: 0;
+        font-size: 2.8rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: white;
+    }
+
+    .franja-superior p {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        color: #ecf0f1;
+    }
+
+/* Contenedor central */
+.contenedor-inicio {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.seccion-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.tarjeta-info {
+    flex: 1;
+    max-width: 400px;
+    background-color: #fdfbf7; 
+    border-top: 5px solid #800020; 
+    border-radius: 10px;
+    padding: 30px 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .tarjeta-info:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+.icono {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.tarjeta-info h3 {
+    color: #2c3e50; 
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.tarjeta-info p {
+    color: #333333; 
+    line-height: 1.6;
+}
+
+
+.seccion-botones {
+    margin-bottom: 120px;
+}
+
+.btn-vino, .btn-azul {
+    display: inline-block;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white !important;
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-vino {
+    background-color: #800020;
+}
+
+    .btn-vino:hover {
+        background-color: #5c0017;
+        transform: scale(1.05);
+    }
+
+.btn-azul {
+    background-color: #2c3e50;
+}
+
+    .btn-azul:hover {
+        background-color: #1a252f;
+        transform: scale(1.05);
+    }

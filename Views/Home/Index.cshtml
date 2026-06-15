@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "INICIO";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/Content/css/Index.css")" />
+
+<div class="franja-superior">
+    <h1>SISTEMA DE BECAS.NET</h1>
+    <p>Bienvenidos al portal oficial de gestión de ayudas académicas.</p>
+</div>
+
+<div class="contenedor-inicio">
+
+    <div class="seccion-info">
+        <div class="tarjeta-info">
+            <div class="icono">🎓</div>
+            <h3>Comenzando</h3>
+            <p><em>Este programa te ofrece una oportunidad valiosa para desarrollar tus habilidades académicas y profesionales de forma sencilla.</em></p>
+        </div>
+
+        <div class="tarjeta-info">
+            <div class="icono">🤝</div>
+            <h3>Más Oportunidades</h3>
+            <p><em>Nuestro programa de becas te permitirá postularte, actualizar y gestionar fácilmente tus metas para el futuro.</em></p>
+        </div>
+    </div>
+
+    <div class="seccion-botones">
+        <a href="@Url.Action("Autenticar", "Acceso")" class="btn-vino">Iniciar Sesión</a>
+        <p>
+
+        </p>
+        <a href="@Url.Action("Registros", "Acceso")" class="btn-azul">Registrarse Ahora</a>
+    </div>
+
+</div>

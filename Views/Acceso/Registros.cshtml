@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Registros";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/Content/css/Registros.css")">
+
+<div class="cabecera-gobierno">
+    <h2>Sistema de Becas BECA-NET</h2>
+</div>
+
+<div class="contenedor-formulario">
+    <h3>Datos Personales</h3>
+    <p class="texto-instruccion">Ingrese su información personal.</p>
+
+    <form action="@Url.Action("datos_academicos", "Acceso")">
+        <div class="grupo-input">
+            <label>Nombres:</label>
+            <input type="text" placeholder="Ej: Juan Pérez" required>
+        </div>
+
+        <div class="grupo-input">
+            <label>Apellidos :</label>
+            <input type="text" placeholder="Ej: Gómez López" required>
+        </div>
+
+        <div class="grupo-input">
+            <label>Correo Electrónico:</label>
+            <input type="email" placeholder="ejemplo@correo.com" required>
+        </div>
+
+        <div class="grupo-input">
+            <label>Provincia de Residencia:</label>
+            <select required>
+                <option value="">Seleccione su provincia...</option>
+                <option>Pichincha</option>
+                <option>Guayas</option>
+                <option>Azuay</option>
+                <option>Manabí</option>
+                <option>Otras</option>
+            </select>
+        </div>
+
+        <div class="fila-botones">
+            <button type="button" class="boton-volver" onclick="location.href='@Url.Action("Autenticar", "Acceso")'">Cancelar Registro</button>
+            <button type="submit" class="boton-guardar">Guardar y Continuar</button>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,46 @@
+<meta charset="utf-8" />
+
+@{
+    ViewBag.Title = "Postulacion de Becas";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/Content/css/postulacion_beca.css")">
+
+<div class="cabecera-gobierno">
+    <h2>Sistema de Becas BECA-NET</h2>
+</div>
+
+<div class="contenedor-formulario">
+    <h3>Postulacion de Beca</h3>
+    <p class="texto-instruccion">Seleccione el tipo de beca al que desea aplicar y justifique su solicitud.</p>
+
+    <form action="@Url.Action("Index", "Home")" onsubmit="alert('¡Registro exitoso! Tu información ha sido enviada correctamente.');">
+
+        <div class="grupo-input">
+            <label>Tipo de Beca a solicitar:</label>
+            <select required>
+                <option value="">Seleccione una opcion...</option>
+                <option>Beca por Excelencia Academica</option>
+                <option>Beca por Situacion Economica</option>
+                <option>Beca por Merito Deportivo</option>
+                <option>Beca por Discapacidad</option>
+            </select>
+        </div>
+
+        <div class="grupo-input">
+            <label>Promedio Academico Actual:</label>
+            <input type="text" placeholder="Ej: 9.5" required>
+        </div>
+
+        <div class="grupo-input">
+            <label>Justificacion de la solicitud:</label>
+<textarea rows="4" placeholder="Explique brevemente por que considera que es candidato idoneo para esta beca..." required></textarea>
+        </div>
+
+        <div class="fila-botones">
+            <button type="button" class="boton-volver" onclick="location.href='@Url.Action("datos_academicos", "Acceso")'">Atras</button>
+
+            <button type="submit" class="boton-guardar">Finalizar Postulacion</button>
+        </div>
+    </form>
+</div>

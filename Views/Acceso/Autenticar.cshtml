@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Autenticar";
+}
+
+<h2>Autenticar</h2>
+
+<link rel="stylesheet" href="~/Content/css/Autenticar.css">
+
+<div class="cabecera-gobierno">
+    <h2>Sistema de Becas BECA-NET</h2>
+</div>
+
+<div class="contenedor-login">
+
+
+    <form action="#">
+        <label><em>Cédula</em> </label>
+        <div class="grupo-input">
+
+
+
+            <input type="text" id="cedula" name="cedula" placeholder="0602145478" required>
+        </div>
+        <label><em>Contraseña</em> </label>
+        <div class="grupo-input">
+            <input type="password" id="clave" name="clave" placeholder="*********" required>
+        </div>
+
+        <div class="fila-botones">
+            <p></p>
+            <button type="submit" class="boton-ingresar">Ingresar</button>
+
+        </div>
+    </form>
+    <p></p>
+    <div class="enlaces-ayuda">
+        <a href="#">¿Olvidaste tu contraseña?</a>
+        <p>
+
+        </p>
+
+        <a href="@Url.Action("Registros", "Acceso")" class="boton-registro">Regístrate. </a>
+    </div>
+</div>

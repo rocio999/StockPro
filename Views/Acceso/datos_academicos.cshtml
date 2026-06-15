@@ -1,0 +1,45 @@
+@{
+    ViewBag.Title = "Datos Académicos";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/Content/css/datos_academicos.css")">
+
+<div class="cabecera-gobierno">
+    <h2>Sistema de Becas BECA-NET</h2>
+</div>
+
+<div class="contenedor-formulario">
+    <h3>Información Académica</h3>
+    <p class="texto-instruccion">Complete los datos de la institución donde cursa sus estudios actualmente.</p>
+
+    <form action="@Url.Action("postulacion_beca", "Acceso")">
+
+        <div class="grupo-input">
+            <label>Institución de Educación Superior:</label>
+            <input type="text" placeholder="Ej: Universidad Central del Ecuador" required>
+        </div>
+
+        <div class="grupo-input">
+            <label>Carrera que cursa:</label>
+            <input type="text" placeholder="Ej: Desarrollo de Software" required>
+        </div>
+
+        <div class="grupo-input">
+            <label>Nivel o Semestre actual:</label>
+            <select required>
+                <option value="">Seleccione su nivel...</option>
+                <option>Primer Semestre</option>
+                <option>Segundo Semestre</option>
+                <option>Tercer Semestre</option>
+                <option>Cuarto Semestre</option>
+                <option>Quinto Semestre o superior</option>
+            </select>
+        </div>
+
+        <div class="fila-botones">
+            <button type="button" class="boton-volver" onclick="location.href='@Url.Action("Registros", "Acceso")'">Atrás</button>
+
+            <button type="submit" class="boton-guardar">Guardar y Continuar</button>
+        </div>
+    </form>
+</div>
