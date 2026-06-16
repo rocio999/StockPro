@@ -17,6 +17,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.material3.Button
+
 
 @Composable
 fun pantallaIngreso( navController: NavController){
@@ -42,9 +44,21 @@ fun pantallaIngreso( navController: NavController){
                 Text("Nombre Operario")
             }
         )
-    }
+        Spacer(modifier = Modifier.height(20.dp))
 
+        Button(
+            onClick = {
+                navController.navigate("catalogo/$nombre")
+            },
+            enabled = nombre.length >= 3
+        ) {
+            Text("Ingresar al Sistema")
+        }
+    }
 }
+
+
+
 
 
 
