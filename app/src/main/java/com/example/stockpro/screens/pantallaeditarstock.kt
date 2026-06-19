@@ -17,10 +17,10 @@ fun pantallaeditarstock(
     id: Int
 ) {
 
-    val producto =
+    val producto =      // BUSCA EL RPDUCTO POR EL ID RECIBIDO DESDE LA PANTALLA CATALOGO
         viewModel.obtenerProducto(id)
 
-    var stock by remember {
+    var stock by remember {  //CREAR UNA VARIABLE PARA ALMACENAR LA CANTIDAD ACTUAL DEL PRODUCTO
         mutableStateOf(
             producto?.stockActual ?: 0
         )
@@ -34,25 +34,25 @@ fun pantallaeditarstock(
 
         Text(
             producto?.nombre ?: "",
-            style = MaterialTheme.typography.headlineMedium
+            style = MaterialTheme.typography.headlineMedium //MUESTRA EL NOMRE DE PRODUCTO
         )
 
         Text(
             producto?.descripcion ?: ""
         )
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(20.dp)) // MUESTRA DESCRIPCION DEL PRODUCTO
 
         Text(
             "Stock Actual: $stock",
-            style = MaterialTheme.typography.headlineSmall
+            style = MaterialTheme.typography.headlineSmall // MOSTRAR EL STOCK ACTUAL MIESTRAS SE REALIZAN MODIFICACIONES
         )
 
         Spacer(modifier = Modifier.height(20.dp))
 
         Row {
 
-            Button(
+            Button(  // INCREMENTA LA CANTIDAD DISPONIBLE DEL PRODUCTO
                 onClick = {
                     stock++
                 }
@@ -65,7 +65,7 @@ fun pantallaeditarstock(
             )
 
             Button(
-                onClick = {
+                onClick = { // DISMINIUYE LA CANTIDAD DEL PRODCUTO
                     stock--
                 },
                 enabled = stock > 0
@@ -79,12 +79,12 @@ fun pantallaeditarstock(
         Button(
             onClick = {
 
-                viewModel.actualizarStock(
+                viewModel.actualizarStock( //ACTUALIZA LOS DATOS
                     id,
                     stock
                 )
 
-                navController.popBackStack()
+                navController.popBackStack() // REGRESA AL CATALOGO AUTOMATICAMENTE
             }
         ) {
             Text("Guardar y Volver")

@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 
 import com.example.stockpro.model.Producto
 
-class StockViewModel: ViewModel (){
+class StockViewModel: ViewModel (){  // administra los datos y realizan operaciones.
 
-        val productos = mutableStateListOf(
+        val productos = mutableStateListOf(  // Almacena lista
             Producto(
                 1,
                 "Refrigeradora",
@@ -30,11 +30,11 @@ class StockViewModel: ViewModel (){
             Producto(8, "Ventilador", "Refresca en tres niveles", 50.0, 3)
         )
 
-        fun obtenerProducto(id: Int): Producto? {
+        fun obtenerProducto(id: Int): Producto? {      //busca su producto pro identificador y devuelve el producto encontrado
             return productos.find { it.id == id }
         }
 
-        fun actualizarStock(id: Int, nuevacantidad: Int) {
+        fun actualizarStock(id: Int, nuevacantidad: Int) {   //permite modificar la cantidad disponible del producto
             val index = productos.indexOfFirst { it.id == id }
 
             if (index != -1) {
@@ -45,16 +45,16 @@ class StockViewModel: ViewModel (){
             }
         }
 
-        fun calcularValorTotalInventario(): Double {
+        fun calcularValorTotalInventario(): Double {    // calcula el valor economico total del inventario multiplicando el precio por cada producto
             return productos.sumOf { it.precio * it.stockActual }
         }
 
-        fun obtenerProductosEnRiesgo(): List<Producto> {
+        fun obtenerProductosEnRiesgo(): List<Producto> {   // devuelve la lista de productos cuya unidad es menor a 5 unidades
             return productos.filter { it.stockActual < 5 }
 
         }
 
-        fun totalProductosSinStock(): Int {
+        fun totalProductosSinStock(): Int {   // cuantos prodcutos tienen stock igual a cero y devuelve esa cantidad
             return productos.count { it.stockActual == 0 }
         }
     }

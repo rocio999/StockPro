@@ -18,10 +18,10 @@ fun Pantallareportefinanciero(
 ) {
 
     val total =
-        viewModel.calcularValorTotalInventario()
+        viewModel.calcularValorTotalInventario()  // LLAMA A LA FuNcion para calcular el total del inventario
 
     val agotados =
-        viewModel.totalProductosSinStock()
+        viewModel.totalProductosSinStock() // obtienen la cantidad del producto
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -30,7 +30,7 @@ fun Pantallareportefinanciero(
     ) {
 
         Text(
-            "Capital Invertido Total",
+            "Capital Invertido Total",  //Muestra el encabezado principal del repote financiero
             style = MaterialTheme.typography.headlineMedium
         )
 
@@ -39,7 +39,7 @@ fun Pantallareportefinanciero(
         )
 
         Text(
-            "$$total",
+            "$$total",  // presenta el valor  monetario total de todos los productos
             style = MaterialTheme.typography.headlineLarge
         )
 
@@ -48,7 +48,7 @@ fun Pantallareportefinanciero(
         )
 
         Text(
-            "Productos con stock cero: $agotados"
+            "Productos con stock cero: $agotados"  // indica los roductos agotados
         )
 
         Spacer(
@@ -57,7 +57,7 @@ fun Pantallareportefinanciero(
 
         Button(
             onClick = {
-                navController.popBackStack()
+                navController.popBackStack() //permite regresar  ala pantalla anterior
             }
         ) {
             Text("Volver")

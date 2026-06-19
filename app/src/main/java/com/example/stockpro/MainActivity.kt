@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-
+import com.example.stockpro.ui.theme.StockProTheme
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -21,24 +21,25 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
+            StockProTheme {
 
-            val navController = rememberNavController()
+            val navController = rememberNavController()  //permite moverse entre las distintas pantallas
 
-            val stockViewModel: StockViewModel = viewModel()
+            val stockViewModel: StockViewModel = viewModel() //contiene la informacion sincronica
 
-            NavHost(
-                navController = navController,
+            NavHost( // conectar pantallas
+                navController = navController, // se establece la primera pantalla que vera el usuario
                 startDestination = "ingreso"
             ) {
-                composable("ingreso") {
+                composable("ingreso") { // muestra la pantalla donde ingresa el nombre el operario
                    pantallaIngreso(navController)
                 }
-
+                        // recibe el nomre ingresado por el operario y lo envia a la pantalla de catalogo
                 composable("catalogo/{nombre}") { backStackEntry ->
 
                     val nombre = backStackEntry
                         .arguments
-                        ?.getString("nombre") ?: ""
+                        ?.getString("nombre") ?: ""  // aqui se recupera el parametro enviado desde la pantalla anterior
 
                     PantallaCatalogo(
                         navController,
@@ -46,13 +47,13 @@ class MainActivity : ComponentActivity() {
                         nombre
                     )
                 }
-
+                    //identificador del producto
                 composable("editar/{id}") { backStackEntry ->
 
                     val id = backStackEntry
                         .arguments
                         ?.getString("id")
-                        ?.toIntOrNull() ?: 0
+                        ?.toIntOrNull() ?: 0  // obtiene el id del producto para cargar sus datos y permite la modificacion del mismo
 
                     pantallaeditarstock(
                         navController,
@@ -61,7 +62,7 @@ class MainActivity : ComponentActivity() {
                     )
                 }
 
-                composable("reporte") {
+                composable("reporte") { // accede al reporte financiero
 
                         Pantallareportefinanciero(
                         navController,
@@ -71,4 +72,4 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
+}}

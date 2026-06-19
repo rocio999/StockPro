@@ -26,15 +26,14 @@ import androidx.compose.material3.Card
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.setValue
-
+import androidx.compose.foundation.background
 @Composable
-fun PantallaCatalogo(
-    navController: NavController,
-    viewModel: StockViewModel,
-    nombre: String
+fun PantallaCatalogo( navController: NavController,   //PERMITE LA NAVEGACION ENTRE PANTALLAS
+    viewModel: StockViewModel,    //DA INFORMACION DE DATOS Y FUNCIONES DEL INVENTARIO
+    nombre: String    // ES EL NOMBRE DEL OPERARIO
 ) {
 
-    var criticos by remember {
+    var criticos by remember {  // VARIABLE CRITICOS QUE MUESTRA PRODCUTOS SOLO DE BAJO STOCK
         mutableStateOf(false)
     }
 
@@ -42,18 +41,18 @@ fun PantallaCatalogo(
         if (criticos)
             viewModel.obtenerProductosEnRiesgo()
         else
-            viewModel.productos
+            viewModel.productos  //MUESTRA PRODUCTOS CON MENSO DE 5 UND
 
     Scaffold(
 
-        floatingActionButton = {
+        floatingActionButton = {  // boton flotante navegar entre a pantalla del  sistemas
 
             FloatingActionButton(
                 onClick = {
                     navController.navigate("reporte")
                 }
             ) {
-                Text("R")
+                Text("REPORTE")
             }
         }
 
@@ -63,10 +62,12 @@ fun PantallaCatalogo(
             modifier = Modifier
                 .padding(padding)
                 .padding(10.dp)
+
+
         ) {
 
             Text(
-                text = "Operario: $nombre",
+                text = "Operario: $nombre", // se muestra el nombre del operacion que dio incio para ver quien utiliza el sistema
                 style = MaterialTheme.typography.titleLarge
             )
 
@@ -74,7 +75,7 @@ fun PantallaCatalogo(
 
             Row {
 
-                Button(
+                Button( //nuestra todos los productos
                     onClick = {
                         criticos = false
                     }
@@ -84,10 +85,8 @@ fun PantallaCatalogo(
 
                 Spacer(modifier = Modifier.width(10.dp))
 
-                Button(
-                    onClick = {
-                        criticos = true
-                    }
+                Button(   // muestra prodcutos bajos en stock
+                    onClick = { criticos = true }
                 ) {
                     Text("Stock Crítico")
                 }
@@ -95,15 +94,15 @@ fun PantallaCatalogo(
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            LazyColumn {
+            LazyColumn {  // muestra lista de productos
 
                 items(lista) { producto ->
 
-                    Card(
+                    Card(  //muestra dentro de una tarjeta el nombre, precio y cantidad
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(5.dp)
-                            .clickable {
+                            .clickable { // selecciona producto para  navegar dento de la pantalla de idicion y editar el stock
                                 navController.navigate(
                                     "editar/${producto.id }"
                                 )
@@ -123,7 +122,7 @@ fun PantallaCatalogo(
                             Text(
                                 text = "Stock: ${producto.stockActual}",
                                 color =
-                                    if (producto.stockActual < 5)
+                                    if (producto.stockActual < 5)  // Cuando es stock es menor a 5 unid el texto se muestra en rojo para alertar
                                         Color.Red
                                     else
                                         Color.Black

@@ -18,12 +18,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.material3.Button
-
-
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 @Composable
 fun pantallaIngreso( navController: NavController){
 
-    var nombre by remember{ mutableStateOf("") }
+    var nombre by remember{ mutableStateOf("") }  /// nombre ingresado temporalente mientras la pantalla este activa
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -35,27 +35,34 @@ fun pantallaIngreso( navController: NavController){
             style = MaterialTheme.typography.headlineMedium
         )
         Spacer(modifier = Modifier.height(20.dp))
-        OutlinedTextField(
+        OutlinedTextField(    //este permite ingresar tu nombre
             value = nombre,
             onValueChange = {
                 nombre = it
             },
             label = {
-                Text("Nombre Operario")
-            }
+                Text(
+                    text = "Nombre Operario",
+                    color = Color.Black
+                )
+            },
+            textStyle = TextStyle(
+                color = Color.Black
+            )
         )
+
         Spacer(modifier = Modifier.height(20.dp))
 
-        Button(
+        Button(  // boton permite acceder al sistema
             onClick = {
-                navController.navigate("catalogo/$nombre")
+                navController.navigate("catalogo/$nombre") // esto me permitira nacegar a la siguiente pantalla
             },
-            enabled = nombre.length >= 3
+            enabled = nombre.length >= 3 // boton se libera solo cuando este mas de tres caracteres
         ) {
             Text("Ingresar al Sistema")
         }
-    }
-}
+    }}
+
 
 
 
